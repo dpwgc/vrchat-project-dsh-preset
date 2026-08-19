@@ -2,10 +2,9 @@
 
 面向 **VRChat 模型（Avatar）/ Unity 工程开发** 的 [DeepSeek Harness（DSH）](https://github.com/deepseek-ai) Agent 预设。
 
-它在完整编码 Agent（`standard`）的基础上，新增一个 `@deepseek-ai/dsh-mcp-client` 桥接行，实时接入 Unity 编辑器内的 **VRChat Project MCP** 服务，把服务端约 49 个工具以 `mcp__vrchat__*` 命名空间暴露给模型，同时保留完整的编码、文件、检索与后台任务能力。
+### 注意：需要安装与该项目适配的 VrChat Unity MCP 插件 [VRChat Project MCP](https://github.com/dpwgc/vrchat-project-mcp) 这是一个面向 VRChat 模型开发 的 Unity MCP 插件，该Agent的所有项目操作都基于该MCP插件，必须先安装该MCP插件至Unity，预设Agent才能对模型项目进行操作。
 
-与该项目适配的 VrChat Unity MCP 插件：[VRChat Project MCP](https://github.com/dpwgc/vrchat-project-mcp) 一个面向 VRChat 模型开发 的 Unity 编辑器 MCP 插件。
-注意：必须先安装该MCP插件至Unity，该预设Agent才能对模型项目进行操作。
+它在完整编码 Agent（`standard`）的基础上，新增一个 `@deepseek-ai/dsh-mcp-client` 桥接行，实时接入 Unity 编辑器内的 **VRChat Project MCP** 服务，把服务端约 49 个工具以 `mcp__vrchat__*` 命名空间暴露给模型，同时保留完整的编码、文件、检索与后台任务能力。
 
 > 本项目是一个**可独立发布的 DSH 预设仓库**：克隆后运行安装脚本，或手动复制 `vrchat-project-mode/` 目录，即可在 DSH 预设列表中使用。
 
