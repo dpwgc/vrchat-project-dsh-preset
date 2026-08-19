@@ -4,7 +4,7 @@
 
 它在完整编码 Agent（`standard`）的基础上，新增一个 `@deepseek-ai/dsh-mcp-client` 桥接行，实时接入 Unity 编辑器内的 **VRChat Project MCP** 服务，把服务端约 49 个工具以 `mcp__vrchat__*` 命名空间暴露给模型，同时保留完整的编码、文件、检索与后台任务能力。
 
-与该项目适配的 VrChat Unity MCP 插件：[VRChat Project MCP](https://github.com/dpwgc/vrchat-project-mcp) 一个面向 VRChat 模型开发 的 Unity 编辑器 MCP（Model Context Protocol）插件。
+与该项目适配的 VrChat Unity MCP 插件：[VRChat Project MCP](https://github.com/dpwgc/vrchat-project-mcp) 一个面向 VRChat 模型开发 的 Unity 编辑器 MCP 插件。
 注意：必须先安装该MCP插件至Unity，该预设Agent才能对模型项目进行操作。
 
 > 本项目是一个**可独立发布的 DSH 预设仓库**：克隆后运行安装脚本，或手动复制 `vrchat-project-mode/` 目录，即可在 DSH 预设列表中使用。
