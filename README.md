@@ -1,4 +1,4 @@
-# VRChat 工程模式（DeepSeek Harness Agent 预设）
+# DeepSeek Harness VRChat 工程模式（Agent 预设）
 
 面向 **VRChat 模型（Avatar）/ Unity 工程开发** 的 [DeepSeek Harness（DSH）](https://github.com/deepseek-ai) Agent 预设。
 
