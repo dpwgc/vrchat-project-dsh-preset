@@ -105,6 +105,8 @@ cp -R vrchat-project-mode ~/.dsh/.agent-presets/vrchat-project-mode
   - `mcp__vrchat__vrc_get_avatar_info` —— 头像完整报告
   - `mcp__vrchat__vrc_set_component_property` / `mcp__vrchat__vrc_set_parameter` 等 —— 写入类工具
 - 人设内已写入权限约定：**写入类工具在调用前会先向用户确认**，只读模式下服务端会直接拒绝。
+- 人设内已写入**备份规则**：计划完毕、准备对场景内模型执行一批写入操作前，会先调用 `mcp__vrchat__vrc_backup_avatar`（无参）为当前场景模型创建备份；备份失败则暂停并提示用户，不继续写入。
+- 人设内已写入**变更记录规则**：本轮若有任何写入操作，总结时会输出详细变更记录（先后顺序、变更位置、模块/文件、目的、可能影响、如何恢复）。
 - 若会话开始时 Unity 尚未启动 MCP 服务器，预设仍能正常开启（`failOnStartupError: false`），工具会在服务上线后自动同步出现；服务离线期间工具调用会失败并提示启动服务器。
 
 ---
@@ -138,6 +140,10 @@ cp -R vrchat-project-mode ~/.dsh/.agent-presets/vrchat-project-mode
 ## 权限约定
 
 每个 MCP 工具都标注 `query`（只读）或 `write`（会修改场景/资产/项目，只读模式下被服务端拒绝）。写入类工具（名称含 `_set_` / `_create_` / `_delete_` / `_copy_` / `_bind_` / `_instantiate_` / `_destroy_` / `_open_scene` / `_save_scene` / `_run_menu_item` / `_refresh_assets`）调用前，人设会先向用户确认改动内容；不确定时先调 `mcp__vrchat__mcp_get_status` 读取当前访问模式与工具清单。
+
+**备份规则**：计划完毕、准备对场景内模型执行一批写入操作前，人设会先调用 `mcp__vrchat__vrc_backup_avatar`（无参）为当前场景模型创建备份；备份调用失败或报错时，暂停写入并告知用户，除非备份成功或用户明确要求跳过，否则不继续。
+
+**变更记录规则**：本轮若有任何写入操作执行，最终总结必须包含按执行先后顺序排列的详细变更记录，逐条说明：变更内容与位置（目标对象 / 资产路径 / 场景路径）、受影响的模块/文件、变更目的、可能造成的影响（性能等级、表情菜单/参数、其他预制件或场景等）、以及如何恢复（回滚到 `mcp__vrchat__vrc_backup_avatar` 创建的备份，或给出确切的逆向操作）。
 
 ---
 
